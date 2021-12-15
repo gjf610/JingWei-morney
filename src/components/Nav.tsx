@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import SvgIcon from './SvgIcon';
 
 const NavWrapper = styled.nav`
   line-height: 24px;
@@ -19,13 +20,13 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <Link to="/tags">标签页</Link>
+                    <Link to="/tags"><SvgIcon name="tag" width="30" height="30"></SvgIcon></Link>
                 </li>
                 <li>
-                    <Link to="/money">记账页</Link>
+                    <Link to="/money"><SvgIcon name="money" width="30" height="30"></SvgIcon></Link>
                 </li>
                 <li>
-                    <Link to="/statistics">统计页</Link>
+                    <Link to="/statistics"><SvgIcon name="chart" width="30" height="30"></SvgIcon></Link>
                 </li>
             </ul>
         </NavWrapper>
