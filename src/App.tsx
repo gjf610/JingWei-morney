@@ -1,15 +1,67 @@
-import { useState } from 'react'
+import React from "react";
+import {
+  HashRouter,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
+import styled from "styled-components";
+import './index.scss'
+import "./helper.scss";
+import Nav from "./components/Nav";
+const Wrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
+`
+const Main = styled.div`
+    flex-grow: 1;
+    overflow: auto;
+`
 
-
-const App = () => {
-  const [count, setCount] = useState(0)
-
+function App() {
   return (
-    <div>
-      <div>xiaoguo</div>
-    </div>
-  )
+    <HashRouter>
+      <Wrapper>
+        <Main>
+          <Switch>
+            <Route path="/tags">
+              <Tags />
+            </Route>
+            <Route path="/money">
+              <Money />
+            </Route>
+            <Route path="/statistics">
+              <Statistics />
+            </Route>
+            <Redirect exact from="/" to="/money" />
+            <Route path="*" >
+              <NoMatch />
+            </Route>
+          </Switch>
+        </Main>
+
+        <Nav />
+
+      </Wrapper>
+    </HashRouter>
+  );
+}
+function NoMatch() {
+  return <div>页面不存在，请输入正地址！</div>
+}
+function Statistics() {
+  return <h2>统计页</h2>;
 }
 
-export default App
+function Tags() {
+  return <h2>标签页</h2>;
+}
+
+function Money() {
+  return <h2>记账页</h2>;
+}
+
+export default App;

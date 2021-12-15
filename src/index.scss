@@ -1,0 +1,24 @@
+// @import-normalize;
+@import "./helper.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before { box-sizing: border-box; }
+*::after { box-sizing: border-box; }
+.main{
+}
+ul, ol{
+    list-style: none;
+}
+body {
+    font-family: $font-hei;
+    font-size: 16px;
+    line-height: 1.2;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
