@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import SvgIcon from './SvgIcon';
 
@@ -19,7 +19,13 @@ const NavWrapper = styled.nav`
             >.icon{
                 width: 24px;
                 height: 24px;;
-            }            
+            }
+            &.selected {
+                color: red;
+                .icon {
+                    fill: red;
+                }
+            }       
         }
     }
   }
@@ -29,19 +35,19 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <Link to="/tags">
+                    <NavLink to="/tags" activeClassName="selected">
                         <SvgIcon name="tag" />标签页
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/money">
+                    <NavLink to="/money" activeClassName="selected">
                         <SvgIcon name="money" />记账页
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/statistics">
+                    <NavLink to="/statistics" activeClassName="selected">
                         <SvgIcon name="chart" />统计页
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </NavWrapper>
