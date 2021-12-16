@@ -7,19 +7,20 @@ const NavWrapper = styled.nav`
   box-shadow: 0 0 3px rgba(0, 0, 0, .25);
   > ul{
     display: flex;
-
     > li {
-      width: 33.33%;
-      padding: 4px 0;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      >.icon{
-          width: 24px;
-          height: 24px;;
-      }
+        width: 33.33%;
+        text-align: center;
+        >a{
+            padding: 4px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            >.icon{
+                width: 24px;
+                height: 24px;;
+            }            
+        }
     }
   }
 `
@@ -28,14 +29,19 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <SvgIcon name="tag"></SvgIcon>
-                    <Link to="/tags">标签页</Link>
+                    <Link to="/tags">
+                        <SvgIcon name="tag" />标签页
+                    </Link>
                 </li>
-                <li><SvgIcon name="money"></SvgIcon>
-                    <Link to="/money">记账页</Link>
+                <li>
+                    <Link to="/money">
+                        <SvgIcon name="money" />记账页
+                    </Link>
                 </li>
-                <li><SvgIcon name="chart"></SvgIcon>
-                    <Link to="/statistics">统计页</Link>
+                <li>
+                    <Link to="/statistics">
+                        <SvgIcon name="chart" />统计页
+                    </Link>
                 </li>
             </ul>
         </NavWrapper>
