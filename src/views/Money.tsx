@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 
 import { TagsSection } from "./Money/TagsSection";
-import { NotesSection } from "./Money/NotesSection";
+import { NoteSection } from "./Money/NoteSection";
 import { CategorySection } from "./Money/CategorySection";
 import { NumberPadSection } from "./Money/NumberPadSection";
 
@@ -13,15 +13,8 @@ flex-direction: column;
 function Money() {
   return (
     <MoneyLayout>
-      <TagsSection>
-
-      </TagsSection>
-      <NotesSection>
-        <label >
-          <span>备注</span>
-          <input type="text" placeholder="这里添加备注" />
-        </label>
-      </NotesSection>
+      <TagsSection />
+      <NoteSection />
       <CategorySection>
         <ul>
           <li className="selected">支出</li>
