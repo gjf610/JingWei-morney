@@ -1,11 +1,13 @@
+type Props = {
+    name: string,
 
+}
 
-const SvgIcon = ({ name, prefix = 'icon', color = '#333', ...props }) => {
-    const symbolId = `#${prefix}-${name}`;
-
+const SvgIcon = (props: Props) => {
+    const symbolId = `#icon-${props.name}`;
     return (
-        <svg {...props} aria-hidden="true">
-            <use href={symbolId} fill={color} />
+        <svg className="icon" aria-hidden="true">
+            <use href={symbolId} />
         </svg>
     );
 }
