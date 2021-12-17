@@ -3,6 +3,7 @@ import { useTags } from "../useTags";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import SvgIcon from "../components/SvgIcon";
+import { Link } from "react-router-dom";
 
 const TagList = styled.ol`
   font-size: 16px;
@@ -10,16 +11,19 @@ const TagList = styled.ol`
   > li{
     /* //#E5E5E7 */
     margin:0 16px;
-    padding: 12px 16px 12px 0;
     border-bottom: 1px solid #D5D5D9;
     line-height: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    >.icon{
-        width: 20px;
-        height: 20px;;
+    >a{
+      padding: 12px 16px 12px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .icon{
+          width: 20px;
+          height: 20px;;
+      }      
     }
+
   }
 `
 const Button = styled.button`
@@ -46,8 +50,10 @@ function Tags() {
       <TagList>
         {tags.map(tag =>
           <li key={tag}>
-            <span className="oneLine">{tag}</span>
-            <SvgIcon name="right" />
+            <Link to={'/tags/' + tag}>
+              <span className="oneLine">{tag}</span>
+              <SvgIcon name="right" />
+            </Link>
           </li>)}
       </TagList>
       <Center>

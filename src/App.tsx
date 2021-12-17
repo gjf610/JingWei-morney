@@ -5,6 +5,7 @@ import "./helper.scss";
 import Tags from "./views/Tags";
 import Money from "./views/Money";
 import Statistics from "./views/Statistics";
+import { Tag } from "./views/Tag"
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
@@ -16,13 +17,16 @@ function App() {
     <AppWrapper>
       <HashRouter>
         <Switch>
-          <Route path="/tags">
+          <Route exact path="/tags" >
             <Tags />
           </Route>
-          <Route path="/money">
+          <Route exact path="/tags/:tag" >
+            <Tag />
+          </Route>
+          <Route exact path="/money" >
             <Money />
           </Route>
-          <Route path="/statistics">
+          <Route exact path="/statistics" >
             <Statistics />
           </Route>
           <Redirect exact from="/" to="/money" />
