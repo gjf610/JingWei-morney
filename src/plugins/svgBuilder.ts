@@ -18,10 +18,6 @@ function findSvgFile(dir): string[] {
     if (dirent.isDirectory()) {
       svgRes.push(...findSvgFile(dir + dirent.name + '/'))
     } else {
-      console.log(readFileSync(dir + dirent.name)
-      .toString()
-      .replace(clearReturn, '')
-      .replace(fillContent, 'fill="currentColor"'))
       const svg = readFileSync(dir + dirent.name)
         .toString()
         .replace(clearReturn, '')
