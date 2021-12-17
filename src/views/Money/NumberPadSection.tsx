@@ -22,7 +22,6 @@ const NumberPadSection: React.FC<Props> = (props) => {
   }
   const onClickButtonWrapper = (e: React.MouseEvent<HTMLDivElement>) => {
     const text = (e.target as HTMLDivElement).textContent
-    console.log(text)
 
     if (text === null) { return }
     if (text === 'OK') {
