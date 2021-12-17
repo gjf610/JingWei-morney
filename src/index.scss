@@ -23,8 +23,9 @@ body {
   line-height: 1.2;
   background-color: #f5f5f5;
 }
-button {
-  font-family: inherit;
+button,
+input {
+  font: inherit;
 }
 a {
   text-decoration: none;
