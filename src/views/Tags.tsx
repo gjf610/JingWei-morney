@@ -1,5 +1,5 @@
 import React from "react";
-import { useTags } from "../useTags";
+import { useTags } from "../hooks/useTags";
 import Layout from "../components/Layout";
 import { Button } from "../components/Button";
 import styled from "styled-components";

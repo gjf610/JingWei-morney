@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 
@@ -6,25 +6,34 @@ import { TagsSection } from "./Money/TagsSection";
 import { NoteSection } from "./Money/NoteSection";
 import { CategorySection } from "./Money/CategorySection";
 import { NumberPadSection } from "./Money/NumberPadSection";
-import { useState } from "react";
+import { useRecords } from "../hooks/useRecord";
 
 const MoneyLayout = styled(Layout)`
 display: flex;
 flex-direction: column;
 `
 type Category = '-' | '+'
+
+const defaultFormData = {
+  tagIds: [] as number[],
+  note: '',
+  category: '-' as Category,
+  amount: 0,
+}
+
 function Money() {
-  const [selected, setSelected] = useState({
-    tagIds: [] as number[],
-    note: '',
-    category: '-' as Category,
-    amount: 0,
-  })
+  const [selected, setSelected] = useState(defaultFormData)
+  const { records, addRecordItem } = useRecords()
   const onChange = (obj: Partial<typeof selected>) => {
     setSelected({
       ...selected,
       ...obj
     })
+  }
+  const submit = () => {
+    addRecordItem(selected)
+    alert('保存成功')
+    setSelected(defaultFormData)
   }
   return (
     <MoneyLayout>
@@ -36,7 +45,7 @@ function Money() {
         onChange={(category) => onChange({ category })} />
       <NumberPadSection value={selected.amount}
         onChange={(amount) => onChange({ amount })}
-        onOK={() => { }} />
+        onOK={submit} />
     </MoneyLayout>
   );
 }
