@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useTags } from "../useTags";
 import styled from "styled-components";
 import Layout from "../components/Layout";
@@ -50,10 +50,14 @@ const Tag: React.FC = () => {
       </Center>
     </>
   )
+  const history = useHistory()
+  const onClickBack = () => {
+    history.goBack()
+  }
   return (
     <Layout>
       <Topbar>
-        <SvgIcon name="left" />
+        <SvgIcon name="left" onClick={onClickBack} />
         <span>编辑标签</span>
         <SvgIcon />
       </Topbar>
