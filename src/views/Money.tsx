@@ -31,9 +31,10 @@ function Money() {
     })
   }
   const submit = () => {
-    addRecordItem(selected)
-    alert('保存成功')
-    setSelected(defaultFormData)
+    if (addRecordItem(selected)) {
+      alert('保存成功')
+      setSelected(defaultFormData)
+    }
   }
   return (
     <MoneyLayout>
