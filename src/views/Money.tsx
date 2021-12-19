@@ -26,7 +26,7 @@ const defaultFormData = {
 
 function Money() {
   const [selected, setSelected] = useState(defaultFormData)
-  const { records, addRecordItem } = useRecords()
+  const { addRecordItem } = useRecords()
   const onChange = (obj: Partial<typeof selected>) => {
     setSelected({
       ...selected,
@@ -40,7 +40,7 @@ function Money() {
     }
   }
   return (
-    <MoneyLayout>
+    <MoneyLayout scrollTop={9999}>
       <TagsSection value={selected.tagIds}
         onChange={(tagIds) => onChange({ tagIds })} />
       <NoteSection value={selected.note}
