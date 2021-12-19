@@ -18,7 +18,7 @@ export const useRecords = () => {
   }, [])
   useUpdate(() => {
     window.localStorage.setItem('records', JSON.stringify(records))
-  }, [records])
+  }, records)
   const addRecordItem = (newRecord: newRecordItem) => {
     if (newRecord.amount <= 0) {
       alert('请输入金额')
